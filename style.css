@@ -8,7 +8,7 @@
 
 body{
     background:#050816;
-    color:white;
+    color:#fff;
     overflow-x:hidden;
 }
 
@@ -50,6 +50,7 @@ body::after{
     align-items:center;
     position:fixed;
     top:0;
+    left:0;
     z-index:1000;
     backdrop-filter:blur(12px);
     background:rgba(255,255,255,0.05);
@@ -72,22 +73,39 @@ body::after{
 .nav-links a{
     text-decoration:none;
     color:white;
-    transition:0.3s;
     font-weight:500;
+    position:relative;
+    transition:0.3s;
 }
 
 .nav-links a:hover{
     color:#00f7ff;
 }
 
+.nav-links a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    background:#00f7ff;
+    left:0;
+    bottom:-5px;
+    transition:0.4s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
 /* HERO */
 
 .hero{
+    width:100%;
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:120px 8%;
+    padding:140px 8% 80px;
 }
 
 .glass{
@@ -101,8 +119,10 @@ body::after{
     box-shadow:0 0 40px rgba(0,0,0,0.4);
 }
 
+/* TITLE */
+
 h1{
-    font-size:70px;
+    font-size:72px;
     line-height:1.1;
     margin-bottom:20px;
     background:linear-gradient(to right,#00f7ff,#8b5cf6);
@@ -112,8 +132,8 @@ h1{
 
 .subtitle{
     font-size:28px;
-    margin-bottom:40px;
     color:#ddd;
+    margin-bottom:40px;
 }
 
 .auto-type{
@@ -127,7 +147,7 @@ h1{
     display:flex;
     gap:20px;
     flex-wrap:wrap;
-    margin-bottom:70px;
+    margin-bottom:80px;
 }
 
 .btn{
@@ -135,9 +155,9 @@ h1{
     border-radius:50px;
     text-decoration:none;
     color:white;
-    transition:0.4s;
     border:1px solid rgba(255,255,255,0.2);
     background:rgba(255,255,255,0.08);
+    transition:0.4s;
 }
 
 .btn:hover{
@@ -147,21 +167,20 @@ h1{
     box-shadow:0 0 25px #00f7ff;
 }
 
-/* SECTION */
+/* COMMON SECTION */
 
-section,
 .about,
 .projects,
+.experience,
 .skills,
-.contact,
-.experience{
+.contact{
     margin-top:100px;
 }
 
 h2{
-    font-size:42px;
-    margin-bottom:40px;
     text-align:center;
+    font-size:42px;
+    margin-bottom:45px;
     color:#00f7ff;
 }
 
@@ -176,27 +195,27 @@ h2{
     font-size:18px;
 }
 
-/* CARDS */
+/* PROJECTS & EXPERIENCE */
 
 .project-box,
-.skills-box,
 .experience-box{
     display:flex;
-    flex-wrap:wrap;
     justify-content:center;
+    flex-wrap:wrap;
     gap:30px;
 }
 
 .project-card,
 .experience-card{
     width:340px;
+    min-height:260px;
     padding:30px;
     border-radius:25px;
     background:rgba(255,255,255,0.06);
     border:1px solid rgba(255,255,255,0.1);
-    transition:0.4s;
     position:relative;
     overflow:hidden;
+    transition:0.4s;
 }
 
 .project-card::before,
@@ -205,7 +224,12 @@ h2{
     position:absolute;
     width:100%;
     height:100%;
-    background:linear-gradient(45deg,transparent,#00f7ff20,transparent);
+    background:linear-gradient(
+        45deg,
+        transparent,
+        #00f7ff20,
+        transparent
+    );
     top:-100%;
     left:-100%;
     transition:0.5s;
@@ -227,24 +251,38 @@ h2{
 .experience-card h3{
     margin-bottom:15px;
     color:#fff;
+    font-size:24px;
+}
+
+.project-card h4,
+.experience-card h4{
+    margin-bottom:15px;
+    color:#aaa;
 }
 
 .project-card p,
 .experience-card p{
     color:#ccc;
-    line-height:1.7;
+    line-height:1.8;
+}
+
+.exp-year{
+    color:#00f7ff;
+    font-weight:600;
+    display:block;
+    margin-bottom:15px;
 }
 
 /* PROJECT BUTTONS */
 
 .project-links{
-    margin-top:20px;
+    margin-top:25px;
     display:flex;
     gap:15px;
 }
 
 .project-btn{
-    padding:10px 20px;
+    padding:10px 22px;
     border-radius:30px;
     text-decoration:none;
     background:#00f7ff20;
@@ -254,50 +292,32 @@ h2{
 
 .project-btn:hover{
     background:#00f7ff;
-    color:black;
+    color:#000;
 }
 
 /* SKILLS */
+
+.skills-box{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
 
 .skill-card{
     padding:15px 28px;
     border-radius:50px;
     background:rgba(255,255,255,0.06);
     border:1px solid rgba(255,255,255,0.1);
-    transition:0.3s;
     color:#ddd;
+    transition:0.3s;
 }
 
 .skill-card:hover{
     transform:scale(1.08);
     background:#00f7ff;
-    color:black;
+    color:#000;
     box-shadow:0 0 20px #00f7ff;
-}
-
-/* EXPERIENCE */
-.experience{
-    width:100%;
-    margin-top:100px;
-}
-
-.experience-box{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:stretch;
-    gap:30px;
-    flex-wrap:wrap;
-    margin-top:40px;
-}
-
-.experience-card{
-    width:340px;
-    min-height:250px;
-    padding:30px;
-    border-radius:25px;
-    background:rgba(255,255,255,0.06);
-    border:1px solid rgba(255,255,255,0.1);
 }
 
 /* CONTACT */
@@ -305,7 +325,7 @@ h2{
 .contact p{
     text-align:center;
     color:#ccc;
-    margin-bottom:30px;
+    margin-bottom:35px;
 }
 
 .contact-links{
@@ -326,7 +346,7 @@ h2{
 
 .contact-btn:hover{
     background:#00f7ff;
-    color:black;
+    color:#000;
     box-shadow:0 0 20px #00f7ff;
 }
 
@@ -340,30 +360,51 @@ h2{
     border-top:1px solid rgba(255,255,255,0.1);
 }
 
-/* MOBILE */
+/* MOBILE RESPONSIVE */
 
 @media(max-width:768px){
-
-    h1{
-        font-size:42px;
-    }
-
-    .subtitle{
-        font-size:20px;
-    }
 
     .navbar{
         flex-direction:column;
         gap:20px;
+        padding:20px;
     }
 
     .nav-links{
-        gap:15px;
         flex-wrap:wrap;
         justify-content:center;
+        gap:15px;
     }
 
     .glass{
-        padding:30px;
+        padding:30px 20px;
+    }
+
+    h1{
+        font-size:42px;
+        text-align:center;
+    }
+
+    .subtitle{
+        font-size:20px;
+        text-align:center;
+    }
+
+    .buttons{
+        justify-content:center;
+    }
+
+    h2{
+        font-size:32px;
+    }
+
+    .project-card,
+    .experience-card{
+        width:100%;
+    }
+
+    .contact-links{
+        flex-direction:column;
+        align-items:center;
     }
 }
