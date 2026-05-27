@@ -276,10 +276,28 @@ h2{
 }
 
 /* EXPERIENCE */
+.experience{
+    width:100%;
+    margin-top:100px;
+}
 
-.exp-year{
-    color:#00f7ff;
-    font-weight:700;
+.experience-box{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:stretch;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+.experience-card{
+    width:340px;
+    min-height:250px;
+    padding:30px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.1);
 }
 
 /* CONTACT */
